@@ -15,8 +15,18 @@ public class Basket {
         this.items = new ArrayList<Item>();
     }
 
+    public ArrayList<Item> getItems(){
+        return this.items;
+    }
+
     public int numberOfItemsInBasket() {
         return items.size();
+    }
+
+    public int evenNumberOfItemsInBasket() {
+        if (numberOfItemsInBasket() % 2 == 0)
+            return numberOfItemsInBasket();
+        else return numberOfItemsInBasket() - 1;
     }
 
     public void addItem(Item item) {

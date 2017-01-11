@@ -60,4 +60,21 @@ public class BasketTest {
 
     }
 
+    @Test
+    public void returnEvenNumberForOddNumberOfItemsInBasket() {
+        basket.addItem(item);
+        basket.addItem(item2);
+        basket.addItem(item3);
+        assertEquals(2, basket.evenNumberOfItemsInBasket());
+    }
+
+    @Test
+    public void returnEvenNumberOfItemsInBasket() {
+        basket.addItem(item);
+        basket.addItem(item2);
+        basket.addItem(item3);
+        basket.addItem(item);
+        assertEquals(4, basket.evenNumberOfItemsInBasket());
+    }
+
 }

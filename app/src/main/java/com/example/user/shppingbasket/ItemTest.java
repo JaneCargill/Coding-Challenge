@@ -30,4 +30,5 @@ public class ItemTest {
     public void hasDeal() {
         assertEquals("no deal", item.getDeal());
     }
+
 }

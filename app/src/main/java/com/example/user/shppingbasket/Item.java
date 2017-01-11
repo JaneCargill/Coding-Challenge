@@ -4,7 +4,7 @@ package com.example.user.shppingbasket;
  * Created by user on 09/01/2017.
  */
 
-public class Item {
+public class Item implements Comparable<Item> {
 
     private int price;
     private String deal;
@@ -20,5 +20,11 @@ public class Item {
 
     public String getDeal() {
         return deal;
+    }
+
+    @Override
+    public int compareTo(Item compareItem){
+        int comparePrice = compareItem.getPrice();
+        return this.price-comparePrice;
     }
 }
