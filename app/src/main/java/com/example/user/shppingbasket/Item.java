@@ -18,6 +18,8 @@ public class Item implements Comparable<Item> {
         return price;
     }
 
+    public void setPrice(int newPrice) { this.price = newPrice; }
+
     public String getDeal() {
         return deal;
     }

@@ -30,6 +30,7 @@ public class DealTest {
         item2 = new Item(7, "no deal");
         item3 = new Item(11, "no deal");
         deal = new LoyaltyCardDiscount("2% off total", basket);
+        bogof = new BuyOneGetOneFree("bogof", basket);
     }
 
     @Test
@@ -48,6 +49,16 @@ public class DealTest {
         ArrayList<Item> basketItems = basket.getItems();
         Collections.sort(basketItems);
         assertEquals(5, basketItems.get(0).getPrice());
+    }
+
+    @Test
+    public void bogofDeal() {
+        basket.addItem(item2);
+        basket.addItem(item1);
+        basket.addItem(item);
+        basket.addItem(item3);
+        bogof.bogof();
+        assertEquals(21, basket.getTotalCost());
     }
 
 

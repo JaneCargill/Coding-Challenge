@@ -23,8 +23,13 @@ public class BuyOneGetOneFree implements Deal{
 
     public void bogof(){
         ArrayList<Item> shopping = basket.getItems();
-//        for (Item item : shopping){}
-            Collections.sort(shopping);
+         Collections.sort(shopping);
+        int halfNoOfItems = basket.evenNumberOfItemsInBasket() / 2;
+        for (int counter = 0; counter < halfNoOfItems; counter++ ){
+            shopping.get(counter).setPrice(0);
+                }
+
+
 
     }
 }
