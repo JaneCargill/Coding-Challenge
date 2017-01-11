@@ -20,18 +20,18 @@ public class LoyaltyCardDiscount implements Deal{
         return deal;
     }
 
-    public float twoPercentDiscount() {
-        int total = basket.getTotalCost();
+    public float twoPercentDiscount(TenPercentDiscount tenPercDisc, BuyOneGetOneFree bogof) {
+        float total = tenPercDisc.tenPercentDiscount(bogof);
         float discountedPrice = total / 100.0f * 2.0f;
         return total - discountedPrice;
 
     }
 
-    public float implementDealWithLoyaltyCard(Person person) {
+    public float implementDealWithLoyaltyCard(Person person, TenPercentDiscount tenPercDisc, BuyOneGetOneFree bogof) {
         if (person.hasLoyaltyCard()) {
-            return twoPercentDiscount();
+            return twoPercentDiscount(tenPercDisc, bogof);
         }
-        return basket.getTotalCost();
+        return tenPercDisc.tenPercentDiscount(bogof);
     }
 
 }

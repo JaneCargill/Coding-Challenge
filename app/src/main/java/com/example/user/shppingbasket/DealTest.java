@@ -43,7 +43,7 @@ public class DealTest {
     @Test
     public void twoPercentDiscount() {
         basket.addItem(item);
-        assertEquals(9.8f, deal.twoPercentDiscount());
+        assertEquals(9.8f, deal.twoPercentDiscount(tenPercDisc, bogof));
 
     }
 
@@ -74,7 +74,7 @@ public class DealTest {
         basket.addItem(item1);
         basket.addItem(item);
         basket.addItem(item3);
-        assertEquals(18.9f, tenPercDisc.tenPercentDiscount());
+        assertEquals(18.9f, tenPercDisc.tenPercentDiscount(bogof));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class DealTest {
         basket.addItem(item1);
         basket.addItem(item);
         basket.addItem(item3);
-        assertEquals(32.34f, deal.implementDealWithLoyaltyCard(person));
+        assertEquals(18.522f, deal.implementDealWithLoyaltyCard(person, tenPercDisc, bogof));
 
     }
 
@@ -93,13 +93,9 @@ public class DealTest {
         basket.addItem(item1);
         basket.addItem(item);
         basket.addItem(item3);
-        assertEquals(33.00f, deal.implementDealWithLoyaltyCard(person2));
+        assertEquals(18.9f, deal.implementDealWithLoyaltyCard(person2, tenPercDisc, bogof));
     }
 
-    @Test
-    public void allDiscounts() {
-        
-    }
 
 
 
