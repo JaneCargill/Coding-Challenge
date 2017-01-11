@@ -10,7 +10,6 @@ import java.util.Collections;
 public class BuyOneGetOneFree implements Deal{
     private Basket basket;
     private String deal;
-//    private Item item;
 
     public BuyOneGetOneFree(String deal, Basket basket){
         this.basket = basket;
@@ -28,8 +27,6 @@ public class BuyOneGetOneFree implements Deal{
         for (int counter = 0; counter < halfNoOfItems; counter++ ){
             shopping.get(counter).setPrice(0);
                 }
-
-
-
     }
+
 }

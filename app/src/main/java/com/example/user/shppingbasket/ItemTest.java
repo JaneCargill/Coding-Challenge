@@ -16,9 +16,9 @@ public class ItemTest {
 
     @Before
     public void before() {
-        item = new Item(10, "no deal");
-        item2 = new Item(15, "no deal");
-        item3 = new Item(13, "no deal");
+        item = new Item(10);
+        item2 = new Item(15);
+        item3 = new Item(13);
     }
 
     @Test
@@ -26,9 +26,5 @@ public class ItemTest {
         assertEquals(10, item.getPrice());
     }
 
-    @Test
-    public void hasDeal() {
-        assertEquals("no deal", item.getDeal());
-    }
 
 }

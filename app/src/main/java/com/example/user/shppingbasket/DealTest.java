@@ -29,10 +29,10 @@ public class DealTest {
     public void before() {
 
         basket = new Basket();
-        item = new Item(10, "no deal");
-        item1 = new Item(5, "no deal");
-        item2 = new Item(7, "no deal");
-        item3 = new Item(11, "no deal");
+        item = new Item(10);
+        item1 = new Item(5);
+        item2 = new Item(7);
+        item3 = new Item(11);
         deal = new LoyaltyCardDiscount("2% off total", basket);
         bogof = new BuyOneGetOneFree("bogof", basket);
         tenPercDisc = new TenPercentDiscount("tenPerc", basket);
@@ -95,8 +95,6 @@ public class DealTest {
         basket.addItem(item3);
         assertEquals(18.9f, deal.implementDealWithLoyaltyCard(person2, tenPercDisc, bogof));
     }
-
-
 
 
 }

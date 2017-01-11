@@ -20,10 +20,10 @@ public class TenPercentDiscountTest {
     @Before
     public void before() {
         basket = new Basket();
-        item = new Item(10, "no deal");
-        item1 = new Item(5, "no deal");
-        item2 = new Item(7, "no deal");
-        item3 = new Item(11, "no deal");
+        item = new Item(10);
+        item1 = new Item(5);
+        item2 = new Item(7);
+        item3 = new Item(11);
         tenPercDisc = new TenPercentDiscount("10% off", basket);
     }
 

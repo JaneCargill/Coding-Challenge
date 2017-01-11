@@ -7,11 +7,9 @@ package com.example.user.shppingbasket;
 public class Item implements Comparable<Item> {
 
     private int price;
-    private String deal;
 
-    public Item(int price, String deal){
+    public Item(int price){
         this.price = price;
-        this.deal = deal;
     }
 
     public int getPrice() {
@@ -20,9 +18,6 @@ public class Item implements Comparable<Item> {
 
     public void setPrice(int newPrice) { this.price = newPrice; }
 
-    public String getDeal() {
-        return deal;
-    }
 
     @Override
     public int compareTo(Item compareItem){
