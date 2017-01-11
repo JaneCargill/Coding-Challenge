@@ -1,5 +1,7 @@
 package com.example.user.shppingbasket;
 
+import android.util.Log;
+
 /**
  * Created by user on 10/01/2017.
  */
@@ -14,10 +16,6 @@ public class LoyaltyCardDiscount implements Deal{
     }
 
 
-//    public Basket getBasket() {
-//        return this.basket;
-//    }
-
     public String getDeal() {
         return deal;
     }
@@ -25,9 +23,15 @@ public class LoyaltyCardDiscount implements Deal{
     public float twoPercentDiscount() {
         int total = basket.getTotalCost();
         float discountedPrice = total / 100.0f * 2.0f;
-        return discountedPrice;
-//        return total;
+        return total - discountedPrice;
+
     }
 
+    public float implementDealWithLoyaltyCard(Person person) {
+        if (person.hasLoyaltyCard()) {
+            return twoPercentDiscount();
+        }
+        return basket.getTotalCost();
+    }
 
 }

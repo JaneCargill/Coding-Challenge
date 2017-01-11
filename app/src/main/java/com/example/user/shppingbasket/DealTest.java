@@ -8,6 +8,7 @@ import java.util.Collections;
 
 import static junit.framework.Assert.assertEquals;
 
+
 /**
  * Created by user on 09/01/2017.
  */
@@ -20,6 +21,9 @@ public class DealTest {
     Item item1;
     Item item2;
     Item item3;
+    TenPercentDiscount tenPercDisc;
+    Person person;
+    Person person2;
 
     @Before
     public void before() {
@@ -31,12 +35,15 @@ public class DealTest {
         item3 = new Item(11, "no deal");
         deal = new LoyaltyCardDiscount("2% off total", basket);
         bogof = new BuyOneGetOneFree("bogof", basket);
+        tenPercDisc = new TenPercentDiscount("tenPerc", basket);
+        person = new Person("Jane", true);
+        person2 = new Person("Bob", false);
     }
 
     @Test
-    public void discountWithLoyaltyCard() {
+    public void twoPercentDiscount() {
         basket.addItem(item);
-        assertEquals(0.2f, deal.twoPercentDiscount());
+        assertEquals(9.8f, deal.twoPercentDiscount());
 
     }
 
@@ -59,6 +66,39 @@ public class DealTest {
         basket.addItem(item3);
         bogof.bogof();
         assertEquals(21, basket.getTotalCost());
+    }
+
+    @Test
+    public void tenPercDisc() {
+        basket.addItem(item2);
+        basket.addItem(item1);
+        basket.addItem(item);
+        basket.addItem(item3);
+        assertEquals(18.9f, tenPercDisc.tenPercentDiscount());
+    }
+
+    @Test
+    public void discountWithLoyaltyCard() {
+        basket.addItem(item2);
+        basket.addItem(item1);
+        basket.addItem(item);
+        basket.addItem(item3);
+        assertEquals(32.34f, deal.implementDealWithLoyaltyCard(person));
+
+    }
+
+    @Test
+    public void shopperWithoutLoyaltyCard() {
+        basket.addItem(item2);
+        basket.addItem(item1);
+        basket.addItem(item);
+        basket.addItem(item3);
+        assertEquals(33.00f, deal.implementDealWithLoyaltyCard(person2));
+    }
+
+    @Test
+    public void allDiscounts() {
+        
     }
 
 
